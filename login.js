@@ -3,7 +3,7 @@ async function login() {
         email: document.getElementById('loginName').value,
         password: document.getElementById('loginPassword').value
     }
-    fetch('http://localhost:5000/login', {
+    fetch('https://zen-urlshortener.herokuapp.com/login', {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -45,7 +45,7 @@ async function register() {
         phone: document.getElementById('phone').value
     }
 
-    fetch('http://localhost:5000/signup', {
+    fetch('https://zen-urlshortener.herokuapp.com/signup', {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
