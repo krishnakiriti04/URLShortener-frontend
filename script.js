@@ -1,6 +1,6 @@
 async function shrink() {
     let data = document.getElementById('fullurl').value;
-    fetch("http://localhost:5000/shorturl", {
+    fetch("https://zen-urlshortener.herokuapp.com/shorturl", {
         method: 'POST',
         body: JSON.stringify({ "url": data }),
         headers: {
@@ -16,7 +16,7 @@ async function shrink() {
 
 async function filldata() {
 
-    let raw = await fetch('http://localhost:5000/load');
+    let raw = await fetch('https://zen-urlshortener.herokuapp.com/load');
     let data = await raw.json();
 
     let tbody = document.createElement('tbody');
@@ -26,7 +26,7 @@ async function filldata() {
         let td1 = document.createElement('td');
         td1.innerHTML = `<a href="${url.fullURL}">${url.fullURL}</a>`
         let td2 = document.createElement('td');
-        td2.innerHTML = `<a target="_blank" href="http://localhost:5000/${url.shortURL}">http://localhost:5000/${url.shortURL}</a>`
+        td2.innerHTML = `<a target="_blank" href="https://zen-urlshortener.herokuapp.com/${url.shortURL}">https://zen-urlshortener.herokuapp.com/${url.shortURL}</a>`
         let td3 = document.createElement('td');
         td3.innerHTML = url.clicks;
         tr.append(td1, td2, td3);
