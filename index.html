@@ -4,51 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #330000;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23D18'/%3E%3Cstop offset='1' stop-color='%23330000'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FA3' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FA3' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed;
-            background-size: cover;
-        }
-        
-        #urlTable {
-            background-color: white;
-        }
-        
-        #table-body {
-            background-color: gainsboro;
-            max-height: 700px;
-            overflow-y: auto;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="bg-dark text-light w-100 p-2">
-        <h2>URL Shortener</h2>
-    </div>
-    <div class="container">
+    <div class="container-fluid">
+        <!-- Login form begin -->
+        <div class="row w-sm-50 " id="loginDiv">
+            <div class="box">
+                <form onsubmit="login();return false;" id="loginForm" method="POST">
+                    <h1>Login</h1>
+                    <p class="text-muted"> Please enter your login and password!</p>
+                    <input type="text" id="loginName" name="email" placeholder="Email" autocomplete="off" required>
+                    <input type="password" name="password" id="loginPassword" placeholder="Password" autocomplete="off" required>
+                    <input type="submit" name="submit" id="loginSubmit" value="Login">
+                    <div>
+                        <!-- <input type="button" name="signup" id="signup" value="SignUp" href="#"> -->
+                        <label class="text-muted">Don't have an account ? <a href="#"  onclick="signup()">Sign Up</a> </label>
+                    </div>
+                    <div>
+                        <p>Demo Credentials:</p>
+                        <p><strong> username:</strong> admin@gmail.com</p>
+                        <p><strong>password:</strong> admin</p>
+                    </div>
 
-        <div class="form">
-            <form onsubmit="shrink();return false;" class="my-4 form-inline">
-                <input type="url" name="fullurl" id="fullurl" placeholder="URL" class="form-control col">
-                <input type="submit" class="btn btn-info" value="Shrink">
-            </form>
+
+                </form>
+            </div>
         </div>
-        <div>
-            <table class="table table-responsive table-striped mx-auto table-sm-small" id="urlTable">
-                <thead class="bg-dark text-light">
-                    <th>Full URL</th>
-                    <th>Short URL</th>
-                    <th>Clicks</th>
-                </thead>
-            </table>
+        <!-- Login Form End -->
+        <!-- Register form begin -->
+        <div class="row w-sm-50" id="registerDiv">
+            <div class="box" id="register">
+                <form onsubmit="register();return false;" id="signupForm" method="POST">
+                    <fieldset>
+                        <legend>
+                            <h2 class="text-light">SIGN UP</h2>
+                        </legend>
+                        <div class="form-group input-group">
+                            <i class="fa fa-user p-md-3"></i><input type="text" name="name" id="name" class="col-10" placeholder="username" autocomplete="off" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <i class="fa fa-envelope p-md-3"></i><input type="email" name="email" autocomplete="off" id="email" class="col-10" placeholder="E-mail" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <i class="fa fa-phone p-md-3"></i><input type="tel" name="phone" id="phone" autocomplete="off" class="col-10" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <i class="fa fa-lock p-md-3"></i> <input type="password" name="password" id="password" autocomplete="off" class="col-10" placeholder="password" required>
+                        </div>
+                        <div>
+                            <input type="submit" value="Sign Up" class="btn btn-success">
+                        </div>
+                        <label><a href="login.html">Back to Login</a> </label>
+                    </fieldset>
+                </form>
+            </div>
         </div>
+        <!-- Register form end -->
+
     </div>
-    <script src="script.js"></script>
+
+    <script src="login.js"></script>
 </body>
 
 </html>
